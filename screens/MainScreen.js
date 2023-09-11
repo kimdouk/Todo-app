@@ -1,7 +1,8 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
-// 테스트
+import InputForm from '../components/InputForm'
+
 const MainScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -14,6 +15,7 @@ const MainScreen = () => {
         <View style={styles.listView}>
             <Text style={styles.listTitle}>완료된 일</Text>
         </View>
+        <InputForm/>
     </SafeAreaView>
   )
 }
