@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
       height: 20,
       marginRight: 13,
       borderRadius: 6
-  },
+  }, 
   itemCheckboxCheckedIcon: {
       shadowColor: '#000000',
       shadowOpacity: 0.14,
