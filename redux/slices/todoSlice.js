@@ -6,7 +6,9 @@ const todoSlice = createSlice({
         currentId: 4,
         todos: []
     },
-    reducers: {}
+    reducers: {
+        
+    }
 });
 
 export default todoSlice.reducer;
