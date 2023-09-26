@@ -7,12 +7,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './screens/LoginScreen';
 import app from './firebase';
+import Toast from 'react-native-toast-message';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
     // <MainScreen/>
+    <>
       <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator>
@@ -21,6 +23,8 @@ export default function App() {
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
+      <Toast/>
+    </>
   );
 }
 
