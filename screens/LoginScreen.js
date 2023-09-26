@@ -1,7 +1,7 @@
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import ListIcon from '../assets/list.svg';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import Toast from 'react-native-toast-message';
 
 const LoginScreen = () => {
@@ -10,7 +10,17 @@ const LoginScreen = () => {
     const auth = getAuth();
 
     const handleLogin = async () => {
-
+        try {
+            const user = await signInWithEmailAndPassword(auth, email, password)
+            console.log('user',user);
+        } catch (error) {
+            Alert.alert(
+                "로그인 도중에 문제가 발생했습니다.",
+                error.message,
+                [{ text: '닫기', onPress: () => console.log('닫기') }],
+                { cancelable: true }
+            )
+        }
     }
     const handleSignUp = async () => {
         try {
