@@ -1,5 +1,5 @@
 import { KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../redux/slices/todoSlice';
 
@@ -24,7 +24,7 @@ const InputForm = () => {
         onChangeText={setCurrentValue} 
         onSubmitEditing={handleSubmit}// 엔터로 제출
       />
-      // 제출클릭시 
+      {/* // 제출클릭시  */}
       <Pressable style={styles.addButton} onPress={handleSubmit}>
         <Text style={styles.addButtonText}>+</Text>
       </Pressable>
