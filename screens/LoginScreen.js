@@ -1,13 +1,27 @@
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ListIcon from '../assets/list.svg';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import Toast from 'react-native-toast-message';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigation = useNavigation();
     const auth = getAuth();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, user => {
+            console.log('onAuthStateChanged user', user);
+            if(user){
+                navigation.replace('Main')
+            }
+        })
+    }, [])
+    
+
+
 
     const handleLogin = async () => {
         try {
